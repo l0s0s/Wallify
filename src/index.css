@@ -147,3 +147,23 @@ img {
 .group:hover .overlay {
   opacity: 1 !important;
 }
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.rounded-tl-none {
+  border-top-left-radius: 0 !important;
+}
+
+.rounded-tr-none {
+  border-top-right-radius: 0 !important;
+}
+
+.rounded-bl-lg {
+  border-bottom-left-radius: 0.5rem !important;
+}
+
+.rounded-br-lg {
+  border-bottom-right-radius: 0.5rem !important;
+}
