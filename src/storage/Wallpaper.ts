@@ -7,21 +7,41 @@ import {
   limit,
   startAt,
   orderBy,
+  where,
+  QueryFieldFilterConstraint
 } from "firebase/firestore";
 
 const collectionName = "wallpapers";
 
-export const getWallpapers = async (skp: number, lmt: number) => {
+export type Filter = {
+  Resolutions: string[]
+  Categories: string[]
+};
+
+const getFilterConditions = (filter: Filter) => {
+  let conditions: QueryFieldFilterConstraint[] = []
+  
+  if (filter.Resolutions.length != 0) {
+    conditions.push(where("Resolution", "in", filter.Resolutions))
+  }
+
+  if (filter.Categories.length != 0) {
+    conditions.push(where("Tags", "array-contains-any", filter.Categories))
+  }
+
+  return conditions
+};
+
+export const getWallpapers = async (skp: number, lmt: number, filter: Filter) => {  
   const querySnapshot = await getDocs(
     query(
       collection(db, collectionName),
       orderBy("CreatedAt"),
       limit(lmt),
       startAt(skp),
+      ...getFilterConditions(filter)
     ),
   );
-
-  console.log(querySnapshot.size)
 
   return querySnapshot.docs.map(doc => ({
     ...doc.data(),

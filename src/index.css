@@ -86,7 +86,7 @@ dl {
   background-color: rgba(68, 71, 90, 1) !important;
 }
 
-input,
+/* input, */
 select,
 button,
 [role="button"],
@@ -166,4 +166,83 @@ img {
 
 .rounded-br-lg {
   border-bottom-right-radius: 0.5rem !important;
+}
+
+.App {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  padding: 20px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  /* Закругляем углы */
+  border: 1px solid #ccc;
+  /* Добавляем рамку */
+  margin-right: 5px;
+  /* Отступ справа */
+  vertical-align: middle;
+  /* Выравнивание по вертикали */
+  outline: none;
+  /* Убираем контур вокруг чекбокса */
+}
+
+input[type="checkbox"]:checked {
+  appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    /* Закругляем углы */
+    border: 1px solid #ccc;
+    /* Добавляем рамку */
+    margin-right: 5px;
+    /* Отступ справа */
+    vertical-align: middle;
+    /* Выравнивание по вертикали */
+    outline: none;
+    /* Убираем контур вокруг чекбокса */
+}
+
+/* Скрытие оригинального чекбокса */
+input[type="checkbox"]::-webkit-inner-spin-button,
+input[type="checkbox"]::-webkit-outer-spin-button,
+input[type="checkbox"]::-webkit-input-placeholder {
+  display: none;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  cursor: pointer;
+  margin-bottom: 5px;
+  /* Уменьшим отступ между пунктами */
+  display: flex;
+  /* Разместим содержимое пункта в ряд */
+  align-items: center;
+  /* Выровняем по вертикали */
+}
+
+.sidebar input[type="checkbox"] {
+  margin-right: 5px;
+  /* Отступ между чекбоксом и текстом */
+  vertical-align: middle;
+  /* Выравниваем по вертикали */
 }
