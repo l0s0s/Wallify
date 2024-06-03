@@ -57,6 +57,9 @@ function App() {
           <li onClick={() => toggleResoulition("3840x2160")}>
             <input type="checkbox" checked={selectedResoulitions.includes("3840x2160")} readOnly /> 3840x2160
           </li>
+          <li onClick={() => toggleResoulition("2560x1440")}>
+            <input type="checkbox" checked={selectedResoulitions.includes("2560x1440")} readOnly /> 2560x1440
+          </li>
         </ul>
         <h2>Categories</h2>
         <ul>
