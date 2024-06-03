@@ -17,6 +17,7 @@ code {
   width: 80%;
   padding: 50px;
 }
+
 html,
 body {
   background-image: none !important;
@@ -47,7 +48,7 @@ div[onclick]:hover,
 [role="menuitem"]:hover *,
 .link:hover,
 .link:hover * {
-  color: rgba(241, 250, 140, 1) !important;
+  color: white !important;
 }
 
 a:visited,
@@ -127,4 +128,22 @@ a.active *,
 
 img {
   border: 0;
+}
+
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
+}
+
+.transition-opacity {
+  transition: opacity 0.3s ease;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5) !important;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.group:hover .overlay {
+  opacity: 1 !important;
 }
