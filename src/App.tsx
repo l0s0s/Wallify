@@ -84,6 +84,9 @@ function App() {
           <li onClick={() => toggleCategory("cyberpunk")}>
             <input type="checkbox" checked={selectedCategories.includes("cyberpunk")} readOnly /> Cyberpunk
           </li>
+          <li onClick={() => toggleCategory("art")}>
+            <input type="checkbox" checked={selectedCategories.includes("art")} readOnly /> Art
+          </li>
         </ul>
       </div>
       <div className="content">
