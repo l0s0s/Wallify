@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     let isMounted = true;
-    getWallpapers(0, 20, filter).then((wallpapers: Wallpaper[]) => {
+    getWallpapers(0, 21, filter).then((wallpapers: Wallpaper[]) => {
       if (isMounted) {
         console.log(wallpapers)
 
