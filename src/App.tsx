@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Grid from './components/Grid'
+import Wallpaper from './model/Wallpaper';
+import { getWallpapers } from './storage/Wallpaper'
+import { useEffect, useState } from "react";
 
 function App() {
+  const [wallpapers, setWallpapers] = useState<Wallpaper[]>([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    getWallpapers(0, 20).then((wallpapers: Wallpaper[]) => {
+      if (isMounted) {
+        console.log(wallpapers)
+
+        setWallpapers(wallpapers);
+      }
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      {Grid(wallpapers)}
     </div>
   );
 }
