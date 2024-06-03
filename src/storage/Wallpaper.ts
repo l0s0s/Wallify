@@ -32,13 +32,11 @@ const getFilterConditions = (filter: Filter) => {
   return conditions
 };
 
-export const getWallpapers = async (skp: number, lmt: number, filter: Filter) => {  
+export const getWallpapers = async (filter: Filter) => {  
   const querySnapshot = await getDocs(
     query(
       collection(db, collectionName),
       orderBy("CreatedAt"),
-      limit(lmt),
-      startAt(skp),
       ...getFilterConditions(filter)
     ),
   );
