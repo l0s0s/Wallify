@@ -4,8 +4,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [
-    require('tailwind-dracula')(),
-  ],
-}
-
+  plugins: [require("tailwind-dracula")()],
+};

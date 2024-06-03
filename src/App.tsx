@@ -1,25 +1,26 @@
-import './App.css';
-import Grid from './components/Grid'
-import Wallpaper from './model/Wallpaper';
-import { getWallpapers, Filter } from './storage/Wallpaper'
+import "./App.css";
+import Grid from "./components/Grid";
+import Wallpaper from "./model/Wallpaper";
+import { getWallpapers, Filter } from "./storage/Wallpaper";
 import { useEffect, useState } from "react";
 
 function App() {
   const [wallpapers, setWallpapers] = useState<Wallpaper[]>([]);
-  const [selectedResoulitions, setSelectedResoulitions] = useState<string[]>([]);
+  const [selectedResoulitions, setSelectedResoulitions] = useState<string[]>(
+    [],
+  );
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-
 
   const filter: Filter = {
     Categories: selectedCategories,
-    Resolutions: selectedResoulitions
-  }
+    Resolutions: selectedResoulitions,
+  };
 
   useEffect(() => {
     let isMounted = true;
     getWallpapers(filter).then((wallpapers: Wallpaper[]) => {
       if (isMounted) {
-        console.log(wallpapers)
+        console.log(wallpapers);
 
         setWallpapers(wallpapers);
       }
@@ -40,7 +41,9 @@ function App() {
 
   const toggleResoulition = (resolution: string) => {
     if (selectedResoulitions.includes(resolution)) {
-      setSelectedResoulitions(selectedResoulitions.filter((r) => r !== resolution));
+      setSelectedResoulitions(
+        selectedResoulitions.filter((r) => r !== resolution),
+      );
     } else {
       setSelectedResoulitions([...selectedResoulitions, resolution]);
     }
@@ -52,52 +55,115 @@ function App() {
         <h2>Resoulitions</h2>
         <ul>
           <li onClick={() => toggleResoulition("1920x1080")}>
-            <input type="checkbox" checked={selectedResoulitions.includes("1920x1080")} readOnly /> 1920x1080
+            <input
+              type="checkbox"
+              checked={selectedResoulitions.includes("1920x1080")}
+              readOnly
+            />{" "}
+            1920x1080
           </li>
           <li onClick={() => toggleResoulition("3840x2160")}>
-            <input type="checkbox" checked={selectedResoulitions.includes("3840x2160")} readOnly /> 3840x2160
+            <input
+              type="checkbox"
+              checked={selectedResoulitions.includes("3840x2160")}
+              readOnly
+            />{" "}
+            3840x2160
           </li>
           <li onClick={() => toggleResoulition("2560x1440")}>
-            <input type="checkbox" checked={selectedResoulitions.includes("2560x1440")} readOnly /> 2560x1440
+            <input
+              type="checkbox"
+              checked={selectedResoulitions.includes("2560x1440")}
+              readOnly
+            />{" "}
+            2560x1440
           </li>
         </ul>
         <h2>Categories</h2>
         <ul>
           <li onClick={() => toggleCategory("sci-fi")}>
-            <input type="checkbox" checked={selectedCategories.includes("sci-fi")} readOnly /> Sci-Fi
+            <input
+              type="checkbox"
+              checked={selectedCategories.includes("sci-fi")}
+              readOnly
+            />{" "}
+            Sci-Fi
           </li>
           <li onClick={() => toggleCategory("room")}>
-            <input type="checkbox" checked={selectedCategories.includes("room")} readOnly /> Room
+            <input
+              type="checkbox"
+              checked={selectedCategories.includes("room")}
+              readOnly
+            />{" "}
+            Room
           </li>
           <li onClick={() => toggleCategory("retro")}>
-            <input type="checkbox" checked={selectedCategories.includes("retro")} readOnly /> Retro
+            <input
+              type="checkbox"
+              checked={selectedCategories.includes("retro")}
+              readOnly
+            />{" "}
+            Retro
           </li>
           <li onClick={() => toggleCategory("nature")}>
-            <input type="checkbox" checked={selectedCategories.includes("nature")} readOnly /> Nature
+            <input
+              type="checkbox"
+              checked={selectedCategories.includes("nature")}
+              readOnly
+            />{" "}
+            Nature
           </li>
           <li onClick={() => toggleCategory("city")}>
-            <input type="checkbox" checked={selectedCategories.includes("city")} readOnly /> City
+            <input
+              type="checkbox"
+              checked={selectedCategories.includes("city")}
+              readOnly
+            />{" "}
+            City
           </li>
           <li onClick={() => toggleCategory("pixelart")}>
-            <input type="checkbox" checked={selectedCategories.includes("pixelart")} readOnly /> Pixel art
+            <input
+              type="checkbox"
+              checked={selectedCategories.includes("pixelart")}
+              readOnly
+            />{" "}
+            Pixel art
           </li>
           <li onClick={() => toggleCategory("cyberpunk")}>
-            <input type="checkbox" checked={selectedCategories.includes("cyberpunk")} readOnly /> Cyberpunk
+            <input
+              type="checkbox"
+              checked={selectedCategories.includes("cyberpunk")}
+              readOnly
+            />{" "}
+            Cyberpunk
           </li>
           <li onClick={() => toggleCategory("art")}>
-            <input type="checkbox" checked={selectedCategories.includes("art")} readOnly /> Art
+            <input
+              type="checkbox"
+              checked={selectedCategories.includes("art")}
+              readOnly
+            />{" "}
+            Art
           </li>
           <li onClick={() => toggleCategory("fantasy")}>
-            <input type="checkbox" checked={selectedCategories.includes("fantasy")} readOnly /> Fantasy
+            <input
+              type="checkbox"
+              checked={selectedCategories.includes("fantasy")}
+              readOnly
+            />{" "}
+            Fantasy
           </li>
           <li onClick={() => toggleCategory("music")}>
-            <input type="checkbox" checked={selectedCategories.includes("music")} readOnly /> Music
+            <input
+              type="checkbox"
+              checked={selectedCategories.includes("music")}
+              readOnly
+            />{" "}
+            Music
           </li>
         </ul>
       </div>
-      <div className="content">
-        {Grid(wallpapers)}
-      </div>
+      <div className="content">{Grid(wallpapers)}</div>
     </div>
   );
 }

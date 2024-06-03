@@ -12,10 +12,6 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-if (firebaseConfig.apiKey == "") {
-  console.log("apiKey is empty")
-}
-
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const storage = getStorage(app);

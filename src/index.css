@@ -1,14 +1,14 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -177,6 +177,21 @@ img {
   padding: 20px;
 }
 
+@media only screen and (max-width: 600px) {
+  .sidebar {
+    width: 0%;
+    padding: 10px;
+  }
+}
+
+/* Стили для экранов шириной до 480px */
+@media only screen and (max-width: 480px) {
+  .sidebar {
+    width: 0%;
+    padding: 5px;
+  }
+}
+
 .content {
   flex: 1;
   padding: 20px;
@@ -202,20 +217,20 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked {
   appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 16px;
-    height: 16px;
-    border-radius: 3px;
-    /* Закругляем углы */
-    border: 1px solid #ccc;
-    /* Добавляем рамку */
-    margin-right: 5px;
-    /* Отступ справа */
-    vertical-align: middle;
-    /* Выравнивание по вертикали */
-    outline: none;
-    /* Убираем контур вокруг чекбокса */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  /* Закругляем углы */
+  border: 1px solid #ccc;
+  /* Добавляем рамку */
+  margin-right: 5px;
+  /* Отступ справа */
+  vertical-align: middle;
+  /* Выравнивание по вертикали */
+  outline: none;
+  /* Убираем контур вокруг чекбокса */
 }
 
 /* Скрытие оригинального чекбокса */
